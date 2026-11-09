@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel del CRM: Automatizaciones</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid #60A5FA;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-wrap: wrap; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+
+  <nav aria-label="Menú principal" style="box-sizing: border-box; flex: 0 0 232px; background: #0F172A; color: #E2E8F0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; min-height: 820px">
+    <div style="padding: 4px 10px 18px 10px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Tu CRM</div>
+    <a href="Inicio.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inicio</a>
+    <a href="Panel.html" style="min-height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Chats <span style="font-size: 12px; font-weight: 700; background: #FFFFFF; color: #1D4ED8; padding: 1px 8px; border-radius: 999px">3</span></a>
+    <a href="Main.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Embudo de ventas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Etiquetas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Difusiones</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Respuestas rápidas</a>
+    <a href="Automatizaciones.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1D4ED8">Automatizaciones</a>
+    <a href="Inventario.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inventario de licencias</a>
+    <a href="Productos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Productos y precios</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Equipo</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Conexiones</a>
+  </nav>
+
+  <main style="box-sizing: border-box; flex: 1 1 760px; min-width: 0; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Asistente de ventas</h1>
+        <p style="margin: 0; font-size: 14px; color: #5B6270">Atiende a los clientes por ti y reconoce lo que quieren. <span style="font-weight: 600">Datos de ejemplo.</span></p>
+      </div>
+      <button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Guardar cambios</button>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section style="flex: 2 1 340px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Cómo debe hablar</h2>
+        <label for="instrucciones" style="font-size: 13px; font-weight: 600; color: #3A4150">Instrucciones para el asistente</label>
+        <textarea id="instrucciones" rows="9" style="box-sizing: border-box; border: 1px solid #C9CED8; border-radius: 8px; padding: 12px; font-size: 14px; line-height: 1.5; font-family: inherit; resize: vertical; color: #1A1D23">Eres el asistente de [Nombre de tu tienda]. Habla de forma amable y breve, en 2 o 3 líneas. Si preguntan por el precio, di cuánto cuesta y cómo pagar por De Una. Si preguntan por la entrega, explica que reciben la clave y un PDF con las instrucciones. Si no sabes algo, ofrece pasar con una persona. Siempre cierra invitando a dar el siguiente paso.</textarea>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; font-weight: 600; color: #3A4150">Archivos que puede enviar</span>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px">
+            <span style="font-size: 12px; font-weight: 500; color: #3A4150; background: #EEF0F4; padding: 5px 10px; border-radius: 6px">PDF instalación Office</span>
+            <span style="font-size: 12px; font-weight: 500; color: #3A4150; background: #EEF0F4; padding: 5px 10px; border-radius: 6px">PDF instalación Windows</span>
+          </div>
+        </div>
+      </section>
+
+      <section style="flex: 3 1 440px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Qué quiere el cliente y qué hacemos</h2>
+        <sc-for list="{{intents}}" as="i" hint-placeholder-count="4">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; border: 1px solid #E3E6EC; border-radius: 10px; padding: 12px">
+            <span style="flex: 1 1 160px; font-size: 14px; font-weight: 600">{{i.when}}</span>
+            <span style="font-size: 18px; color: #5B6270" aria-hidden="true">→</span>
+            <span style="flex: 2 1 200px; font-size: 14px; color: #3A4150">{{i.then}}</span>
+          </div>
+        </sc-for>
+        <button type="button" style="align-self: flex-start; min-height: 44px; padding: 0 14px; border: 1px solid #C9CED8; background: #FFFFFF; color: #1A1D23; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Agregar otra situación</button>
+      </section>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Comportamiento</h2>
+        <sc-for list="{{switches}}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 0">
+            <span style="font-size: 14px">{{s.label}}</span>
+            <span style="font-size: 13px; font-weight: 600; padding: 4px 12px; border-radius: 999px; color: {{s.fg}}; background: {{s.bg}}; white-space: nowrap">{{s.state}}</span>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Seguimiento a quien no paga</h2>
+        <p style="margin: 0; font-size: 13px; color: #5B6270">Mensajes automáticos que se detienen apenas el cliente responda o pague.</p>
+        <sc-for list="{{followups}}" as="f" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 2px; background: #F4F5F7; border-radius: 8px; padding: 10px 12px">
+            <span style="font-size: 13px; font-weight: 700; color: #1E3A8A">{{f.when}}</span>
+            <span style="font-size: 14px; color: #3A4150">{{f.text}}</span>
+          </div>
+        </sc-for>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const intents = [
+      { when: 'Quiero comprar', then: 'Enviar precio y cómo pagar por De Una; mover a "Esperando pago"' },
+      { when: 'Quiero saber el precio', then: 'Enviar la lista de precios y preguntar qué producto necesita' },
+      { when: 'Preguntas sobre la entrega', then: 'Explicar que recibe la clave y el PDF de instalación' },
+      { when: 'Necesito ayuda para instalar', then: 'Pasar a una persona y poner la etiqueta "Necesita ayuda"' }
+    ];
+    const on = { state: 'Activado', fg: '#14532D', bg: '#DDF3E4' };
+    const off = { state: 'Desactivado', fg: '#3A4150', bg: '#EEF0F4' };
+    const switches = [
+      { label: 'Responder aunque no coincida con ninguna situación', ...on },
+      { label: 'Pasar a una persona si el cliente lo pide', ...on },
+      { label: 'Leer comprobantes de pago automáticamente', ...on },
+      { label: 'Responder con audio cuando el cliente manda un audio', ...off }
+    ];
+    const followups = [
+      { when: 'A la 1 hora', text: 'Recordatorio corto con el paso para pagar.' },
+      { when: 'Al día siguiente', text: 'Mensaje distinto: ¿tienes alguna duda sobre la licencia?' },
+      { when: 'A los 3 días', text: 'Último aviso amable, sin presionar.' }
+    ];
+    return { intents, switches, followups };
+  }
+}
+</script>
+</body>
+</html>

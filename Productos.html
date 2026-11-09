@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel del CRM: Productos y precios</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #60A5FA;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-wrap: wrap; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+
+  <nav aria-label="Menú principal" style="box-sizing: border-box; flex: 0 0 232px; background: #0F172A; color: #E2E8F0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; min-height: 820px">
+    <div style="padding: 4px 10px 18px 10px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Tu CRM</div>
+    <a href="Inicio.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inicio</a>
+    <a href="Panel.html" style="min-height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Chats <span style="font-size: 12px; font-weight: 700; background: #FFFFFF; color: #1D4ED8; padding: 1px 8px; border-radius: 999px">3</span></a>
+    <a href="Main.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Embudo de ventas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Etiquetas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Difusiones</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Respuestas rápidas</a>
+    <a href="Automatizaciones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Automatizaciones</a>
+    <a href="Inventario.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inventario de licencias</a>
+    <a href="Productos.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1D4ED8">Productos y precios</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Equipo</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Conexiones</a>
+  </nav>
+
+  <main style="box-sizing: border-box; flex: 1 1 760px; min-width: 0; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Productos y precios</h1>
+        <p style="margin: 0; font-size: 14px; color: #5B6270">Lo que vendes, a cuánto y cuándo aplica el precio de mayorista. <span style="font-weight: 600">Datos y precios de ejemplo.</span></p>
+      </div>
+      <button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Agregar producto</button>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+      <h2 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600">Productos</h2>
+      <div style="display: flex; gap: 12px; font-size: 12px; font-weight: 600; color: #5B6270; padding: 0 8px">
+        <span style="flex: 3 1 0; min-width: 0">Producto</span>
+        <span style="flex: 2 1 0; min-width: 0">Cliente final</span>
+        <span style="flex: 2 1 0; min-width: 0">Mayorista</span>
+        <span style="flex: 2 1 0; min-width: 0">Mayorista desde</span>
+        <span style="flex: 2 1 0; min-width: 0">Claves</span>
+      </div>
+      <sc-for list="{{products}}" as="p" hint-placeholder-count="4">
+        <div style="display: flex; gap: 12px; align-items: center; font-size: 14px; padding: 10px 8px; border-top: 1px solid #E8EBF0">
+          <span style="flex: 3 1 0; min-width: 0; font-weight: 600">{{p.name}}</span>
+          <span style="flex: 2 1 0; min-width: 0">{{p.retail}}</span>
+          <span style="flex: 2 1 0; min-width: 0">{{p.wholesale}}</span>
+          <span style="flex: 2 1 0; min-width: 0; color: #3A4150">{{p.from}}</span>
+          <span style="flex: 2 1 0; min-width: 0"><span style="display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; color: {{p.fg}}; background: {{p.bg}}">{{p.stock}}</span></span>
+        </div>
+      </sc-for>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section style="flex: 3 1 420px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Combos para un equipo</h2>
+        <p style="margin: 0; font-size: 13px; color: #5B6270">Se venden al precio de cliente final y no cuentan para llegar a mayorista.</p>
+        <sc-for list="{{combos}}" as="c" hint-placeholder-count="2">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; border: 1px solid #E3E6EC; border-radius: 10px; padding: 12px 14px">
+            <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+              <span style="font-size: 14px; font-weight: 600">{{c.name}}</span>
+              <span style="font-size: 13px; color: #5B6270">{{c.includes}}</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 2px">
+              <span style="font-size: 18px; font-weight: 700">{{c.price}}</span>
+              <span style="font-size: 12px; color: #5B6270">por separado: {{c.separate}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Cómo se decide el precio</h2>
+        <div style="display: flex; flex-direction: column; gap: 4px; background: #F4F5F7; border-radius: 8px; padding: 10px 12px">
+          <span style="font-size: 13px; font-weight: 700; color: #1E3A8A">Cliente final</span>
+          <span style="font-size: 14px; color: #3A4150">Todos empiezan aquí y ven el precio normal.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; background: #F4F5F7; border-radius: 8px; padding: 10px 12px">
+          <span style="font-size: 13px; font-weight: 700; color: #14532D">Técnico (mayorista)</span>
+          <span style="font-size: 14px; color: #3A4150">Se asigna solo cuando compra 3 o más del mismo producto en una compra. Desde ahí conserva el precio de mayorista.</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; background: #F4F5F7; border-radius: 8px; padding: 10px 12px">
+          <span style="font-size: 13px; font-weight: 700; color: #7A4A00">Cambio manual</span>
+          <span style="font-size: 14px; color: #3A4150">Tú puedes poner o quitar la etiqueta de técnico a cualquier cliente.</span>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ok = { fg: '#14532D', bg: '#DDF3E4' };
+    const low = { fg: '#7A4A00', bg: '#FFF1D6' };
+    const none = { fg: '#3A4150', bg: '#EEF0F4' };
+    const products = [
+      { name: 'Windows 11 Pro (OEM)', retail: '$20', wholesale: '$10', from: '3 unidades', stock: '2 disponibles', ...ok },
+      { name: 'Windows 10 Pro (OEM)', retail: '$20', wholesale: '$10', from: '3 unidades', stock: '1 disponible', ...low },
+      { name: 'Office 2021 Pro (OEM)', retail: '$20', wholesale: '$10', from: '3 unidades', stock: '1 disponible', ...low },
+      { name: 'Antivirus', retail: '$12', wholesale: '$6', from: '3 unidades', stock: 'Sin claves', ...none }
+    ];
+    const combos = [
+      { name: 'Combo completo', includes: 'Office 2021 Pro + Windows 11 Pro + Antivirus', price: '$38', separate: '$52' },
+      { name: 'Combo Windows', includes: 'Windows 11 Pro + Antivirus', price: '$28', separate: '$32' }
+    ];
+    return { products, combos };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Inventario de licencias</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+textarea:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; max-width: 1360px; margin: 0 auto; padding: 32px; display: flex; flex-direction: column; gap: 24px; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Inventario de licencias</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Cada venta confirmada toma una clave disponible y la marca como entregada.</p>
+    </div>
+    <span style="font-size: 13px; font-weight: 600; color: #5B6270; background: #E8EBF0; padding: 6px 12px; border-radius: 999px">Datos de ejemplo</span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 16px">
+    <div style="flex: 1 1 200px; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+      <span style="font-size: 13px; color: #5B6270">Disponibles</span>
+      <span style="font-size: 32px; font-weight: 700; color: #15803D">4</span>
+    </div>
+    <div style="flex: 1 1 200px; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+      <span style="font-size: 13px; color: #5B6270">Entregadas</span>
+      <span style="font-size: 32px; font-weight: 700; color: #1A1D23">4</span>
+    </div>
+    <div style="flex: 2 1 320px; background: #FFF1D6; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 13px; font-weight: 600; color: #7A4A00">Aviso de poco inventario</span>
+      <span style="font-size: 15px; color: #5C3700">Quedan 1 clave de Office 2021 Pro y 1 de Windows 10 Pro. Conviene reponer pronto.</span>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+    <section style="flex: 3 1 560px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 8px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+      <h2 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600">Claves</h2>
+      <div style="display: flex; gap: 12px; font-size: 12px; font-weight: 600; color: #5B6270; padding: 0 8px">
+        <span style="flex: 2 1 0; min-width: 0">Producto</span>
+        <span style="flex: 3 1 0; min-width: 0">Clave</span>
+        <span style="flex: 1 1 0; min-width: 0">Estado</span>
+        <span style="flex: 2 1 0; min-width: 0">Entregada a</span>
+      </div>
+      <sc-for list="{{rows}}" as="row" hint-placeholder-count="8">
+        <div style="display: flex; gap: 12px; align-items: center; font-size: 14px; padding: 10px 8px; border-top: 1px solid #E8EBF0">
+          <span style="flex: 2 1 0; min-width: 0; font-weight: 500">{{row.product}}</span>
+          <span style="flex: 3 1 0; min-width: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 13px; color: #3A4150; overflow-wrap: anywhere">{{row.key}}</span>
+          <span style="flex: 1 1 0; min-width: 0"><span style="display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 6px; color: {{row.fg}}; background: {{row.bg}}">{{row.status}}</span></span>
+          <span style="flex: 2 1 0; min-width: 0; color: #3A4150">{{row.to}}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 600">Agregar licencias</h2>
+      <label for="producto" style="font-size: 13px; font-weight: 600; color: #3A4150">Producto</label>
+      <select id="producto" style="min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 10px; font-size: 14px; font-family: inherit; background: #FFFFFF; color: #1A1D23">
+        <option>Office 2021 Pro (OEM)</option>
+        <option>Windows 11 Pro (OEM)</option>
+        <option>Windows 10 Pro (OEM)</option>
+      </select>
+      <label for="claves" style="font-size: 13px; font-weight: 600; color: #3A4150">Pega las claves, una por línea</label>
+      <textarea id="claves" rows="6" placeholder="XXXXX-XXXXX-XXXXX-XXXXX-XXXXX" style="border: 1px solid #C9CED8; border-radius: 8px; padding: 10px; font-size: 13px; font-family: ui-monospace, Menlo, Consolas, monospace; resize: vertical; color: #1A1D23"></textarea>
+      <button type="button" style="min-height: 44px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Guardar en el inventario</button>
+      <p style="margin: 0; font-size: 12px; color: #5B6270">También se podrá subir un archivo de Excel. Si una clave ya existe, el sistema la rechaza para no repetirla.</p>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const free = { status: 'Disponible', fg: '#14532D', bg: '#DDF3E4' };
+    const used = { status: 'Entregada', fg: '#3A4150', bg: '#EEF0F4' };
+    const rows = [
+      { product: 'Office 2021 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-A1B2C', to: '', ...free },
+      { product: 'Windows 11 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-D3E4F', to: '', ...free },
+      { product: 'Windows 11 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-G5H6J', to: '', ...free },
+      { product: 'Windows 10 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-K7L8M', to: '', ...free },
+      { product: 'Office 2021 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-N9P1Q', to: 'Paola C.', ...used },
+      { product: 'Windows 11 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-R2S3T', to: 'Esteban L.', ...used },
+      { product: 'Windows 11 Home (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-U4V5W', to: 'Diego V.', ...used },
+      { product: 'Office 2021 Pro (OEM)', key: 'XXXXX-XXXXX-XXXXX-XXXXX-X6Y7Z', to: 'Marta S.', ...used }
+    ];
+    return { rows };
+  }
+}
+</script>
+</body>
+</html>

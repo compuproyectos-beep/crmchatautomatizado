@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel del CRM: Inicio</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid #60A5FA;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-wrap: wrap; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+
+  <nav aria-label="Menú principal" style="box-sizing: border-box; flex: 0 0 232px; background: #0F172A; color: #E2E8F0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; min-height: 820px">
+    <div style="padding: 4px 10px 18px 10px; font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF">Tu CRM</div>
+    <a href="Inicio.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1D4ED8">Inicio</a>
+    <a href="Panel.html" style="min-height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Chats <span style="font-size: 12px; font-weight: 700; background: #FFFFFF; color: #1D4ED8; padding: 1px 8px; border-radius: 999px">3</span></a>
+    <a href="Main.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Embudo de ventas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Etiquetas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Difusiones</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Respuestas rápidas</a>
+    <a href="Automatizaciones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Automatizaciones</a>
+    <a href="Inventario.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inventario de licencias</a>
+    <a href="Productos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Productos y precios</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Equipo</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Conexiones</a>
+  </nav>
+
+  <main style="box-sizing: border-box; flex: 1 1 760px; min-width: 0; padding: 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Inicio</h1>
+        <p style="margin: 0; font-size: 14px; color: #5B6270">Cómo van tus ventas. <span style="font-weight: 600">Datos de ejemplo.</span></p>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 6px">
+        <span style="font-size: 13px; font-weight: 500; color: #3A4150; background: #E8EBF0; padding: 8px 14px; border-radius: 999px">Hoy</span>
+        <span style="font-size: 13px; font-weight: 600; color: #FFFFFF; background: #1D4ED8; padding: 8px 14px; border-radius: 999px">Últimos 7 días</span>
+        <span style="font-size: 13px; font-weight: 500; color: #3A4150; background: #E8EBF0; padding: 8px 14px; border-radius: 999px">Últimos 30 días</span>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 14px">
+      <sc-for list="{{tiles}}" as="t" hint-placeholder-count="5">
+        <div style="flex: 1 1 170px; background: #FFFFFF; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 4px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+          <span style="font-size: 13px; color: #5B6270">{{t.label}}</span>
+          <span style="font-size: 30px; font-weight: 700">{{t.value}}</span>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section style="flex: 3 1 420px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Del primer mensaje a la entrega</h2>
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 500">{{s.name}}</span><span style="color: #3A4150">{{s.count}} clientes · {{s.pct}}</span></div>
+            <div style="height: 12px; background: #E8EBF0; border-radius: 999px; overflow: hidden"><div style="height: 12px; border-radius: 999px; background: {{s.color}}; width: {{s.w}}"></div></div>
+          </div>
+        </sc-for>
+        <p style="margin: 0; font-size: 13px; color: #5B6270">El porcentaje es sobre todos los que te escribieron en el período.</p>
+      </section>
+
+      <section style="flex: 2 1 280px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 14px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Ventas por canal</h2>
+        <sc-for list="{{channels}}" as="c" hint-placeholder-count="3">
+          <div style="display: flex; flex-direction: column; gap: 6px">
+            <div style="display: flex; justify-content: space-between; font-size: 14px"><span style="font-weight: 500">{{c.name}}</span><span style="color: #3A4150">{{c.sales}} ventas</span></div>
+            <div style="height: 12px; background: #E8EBF0; border-radius: 999px; overflow: hidden"><div style="height: 12px; border-radius: 999px; background: #1D4ED8; width: {{c.w}}"></div></div>
+          </div>
+        </sc-for>
+      </section>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start">
+      <section style="flex: 2 1 320px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0 0 4px 0; font-size: 16px; font-weight: 600">Pendientes para ti</h2>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #FFF1D6; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #5C3700"><span>1 comprobante por confirmar en el banco</span><a href="Panel.html" style="font-weight: 600; color: #7A4A00; min-height: 44px; display: flex; align-items: center">Ver</a></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #DBE7FF; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #1E3A8A"><span>2 clientes piden hablar con una persona</span><a href="Panel.html" style="font-weight: 600; color: #1E3A8A; min-height: 44px; display: flex; align-items: center">Ver</a></div>
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; background: #EEF0F4; border-radius: 8px; padding: 12px 14px; font-size: 14px; color: #3A4150"><span>Quedan pocas claves de Office 2021 Pro</span><a href="Inventario.html" style="font-weight: 600; color: #3A4150; min-height: 44px; display: flex; align-items: center">Ver</a></div>
+      </section>
+
+      <section style="flex: 3 1 420px; min-width: 0; background: #FFFFFF; border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+        <h2 style="margin: 0; font-size: 16px; font-weight: 600">Pregúntale a tu analista</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 6px">
+          <span style="font-size: 12px; font-weight: 600; color: #3A4150; background: #EEF0F4; padding: 6px 10px; border-radius: 999px">¿Cuántas ventas hubo esta semana?</span>
+          <span style="font-size: 12px; font-weight: 600; color: #3A4150; background: #EEF0F4; padding: 6px 10px; border-radius: 999px">¿Qué producto se vende más?</span>
+          <span style="font-size: 12px; font-weight: 600; color: #3A4150; background: #EEF0F4; padding: 6px 10px; border-radius: 999px">¿A quién debo darle seguimiento?</span>
+        </div>
+        <div style="display: flex; gap: 8px">
+          <label for="pregunta" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Escribe tu pregunta</label>
+          <input id="pregunta" type="text" placeholder="Escribe una pregunta sobre tus ventas" style="box-sizing: border-box; flex: 1 1 auto; min-width: 0; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit">
+          <button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Preguntar</button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tiles = [
+      { label: 'Leads nuevos', value: '48' },
+      { label: 'Mensajes', value: '312' },
+      { label: 'Ventas', value: '9' },
+      { label: 'Ingresos', value: '$96' },
+      { label: 'Tasa de cierre', value: '18,8%' }
+    ];
+    const steps = [
+      { name: 'Interesado', count: 48, pct: '100%', w: '100%', color: '#6B7280' },
+      { name: 'Esperando pago', count: 21, pct: '44%', w: '44%', color: '#D97706' },
+      { name: 'Pagó', count: 9, pct: '19%', w: '19%', color: '#1D4ED8' },
+      { name: 'Entregado', count: 8, pct: '17%', w: '17%', color: '#15803D' }
+    ];
+    const channels = [
+      { name: 'WhatsApp', sales: 6, w: '67%' },
+      { name: 'Instagram', sales: 2, w: '22%' },
+      { name: 'Messenger', sales: 1, w: '11%' }
+    ];
+    return { tiles, steps, channels };
+  }
+}
+</script>
+</body>
+</html>

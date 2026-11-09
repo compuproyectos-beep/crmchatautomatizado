@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tablero del embudo de ventas</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+button{font-family:inherit}
+button:hover{background:#E8EBF0}
+button:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; max-width: 1360px; margin: 0 auto; padding: 32px; display: flex; flex-direction: column; gap: 24px; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Embudo de ventas</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Mueve cada cliente con las flechas de su tarjeta. Así se vería tu tablero.</p>
+    </div>
+    <span style="font-size: 13px; font-weight: 600; color: #5B6270; background: #E8EBF0; padding: 6px 12px; border-radius: 999px">Datos de ejemplo</span>
+  </div>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; width: 1281px; height: 580px">
+    <sc-for list="{{columns}}" as="col" hint-placeholder-count="4">
+      <section style="flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: 12px; background: #EAECF0; border-radius: 14px; padding: 14px; box-sizing: border-box">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+          <div style="display: flex; align-items: center; gap: 8px">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: {{col.dot}}"></span>
+            <h2 style="margin: 0; font-size: 15px; font-weight: 600">{{col.name}}</h2>
+          </div>
+          <span style="font-size: 13px; font-weight: 600; color: #3A4150; background: #FFFFFF; min-width: 24px; text-align: center; padding: 2px 8px; border-radius: 999px">{{col.count}}</span>
+        </div>
+
+        <sc-if value="{{col.empty}}" hint-placeholder-val="{{false}}">
+          <p style="margin: 0; font-size: 13px; color: #5B6270; padding: 20px 8px; text-align: center; border: 1px dashed #B9BFCA; border-radius: 10px">Sin clientes en esta etapa</p>
+        </sc-if>
+
+        <sc-for list="{{col.cards}}" as="card" hint-placeholder-count="2">
+          <article style="background: #FFFFFF; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 1px 2px rgba(26,29,35,0.08)">
+            <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 8px">
+              <h3 style="margin: 0; font-size: 15px; font-weight: 600">{{card.name}}</h3>
+              <span style="font-size: 12px; color: #5B6270; white-space: nowrap">{{card.ago}}</span>
+            </div>
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px">
+              <p style="margin: 0; font-size: 14px; color: #3A4150">{{card.product}}</p>
+              <span style="font-size: 14px; font-weight: 700; color: #1A1D23">{{card.price}}</span>
+            </div>
+            <p style="margin: 0; font-size: 13px; color: #5B6270; overflow-wrap: anywhere">{{card.email}}</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 6px">
+              <span style="font-size: 12px; font-weight: 500; color: #3A4150; background: #EEF0F4; padding: 3px 8px; border-radius: 6px">{{card.channel}}</span>
+              <sc-if value="{{card.pdf}}" hint-placeholder-val="{{false}}">
+                <span style="font-size: 12px; font-weight: 600; color: #14532D; background: #DDF3E4; padding: 3px 8px; border-radius: 6px">PDF de instalación enviado</span>
+              </sc-if>
+              <sc-if value="{{card.receipt}}" hint-placeholder-val="{{false}}">
+                <span style="font-size: 12px; font-weight: 600; color: #7A4A00; background: #FFF1D6; padding: 3px 8px; border-radius: 6px">Comprobante recibido: confirmar en el banco</span>
+              </sc-if>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px">
+              <sc-if value="{{card.canLeft}}" hint-placeholder-val="{{true}}">
+                <button type="button" aria-label="{{card.leftLabel}}" onClick="{{card.left}}" style="min-height: 44px; min-width: 44px; border: 1px solid #C9CED8; background: #FFFFFF; color: #1A1D23; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">&larr;</button>
+              </sc-if>
+              <sc-if value="{{card.noLeft}}" hint-placeholder-val="{{false}}">
+                <span></span>
+              </sc-if>
+              <sc-if value="{{card.canRight}}" hint-placeholder-val="{{true}}">
+                <button type="button" aria-label="{{card.rightLabel}}" onClick="{{card.right}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">{{card.rightText}} &rarr;</button>
+              </sc-if>
+            </div>
+          </article>
+        </sc-for>
+      </section>
+    </sc-for>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cards: [
+        { id: 1, name: 'Camila R.', product: 'Office 2021 Pro (OEM)', price: '$12', email: 'camila@ejemplo.com', channel: 'WhatsApp', ago: 'hace 5 min', stage: 0, receipt: false },
+        { id: 2, name: 'Andrés M.', product: 'Windows 11 Pro (OEM)', price: '$10', email: 'andres@ejemplo.com', channel: 'Instagram', ago: 'hace 20 min', stage: 0, receipt: false },
+        { id: 3, name: 'Lucía P.', product: 'Office 2019 (OEM)', price: '$9', email: 'lucia@ejemplo.com', channel: 'Messenger', ago: 'hace 1 h', stage: 0, receipt: false },
+        { id: 4, name: 'Jorge T.', product: 'Windows 10 Pro (OEM)', price: '$8', email: 'jorge@ejemplo.com', channel: 'WhatsApp', ago: 'hace 8 min', stage: 1, receipt: true },
+        { id: 5, name: 'Marta S.', product: 'Office 2021 Pro (OEM)', price: '$12', email: 'marta@ejemplo.com', channel: 'WhatsApp', ago: 'hace 2 h', stage: 1, receipt: false },
+        { id: 6, name: 'Diego V.', product: 'Windows 11 Home (OEM)', price: '$9', email: 'diego@ejemplo.com', channel: 'WhatsApp', ago: 'hace 3 h', stage: 2, receipt: false },
+        { id: 7, name: 'Paola C.', product: 'Office 2021 Pro (OEM)', price: '$12', email: 'paola@ejemplo.com', channel: 'Instagram', ago: 'ayer', stage: 3, receipt: false },
+        { id: 8, name: 'Esteban L.', product: 'Windows 11 Pro (OEM)', price: '$10', email: 'esteban@ejemplo.com', channel: 'WhatsApp', ago: 'ayer', stage: 3, receipt: false }
+      ]
+    };
+  }
+  move(id, delta) {
+    this.setState({
+      cards: this.state.cards.map((c) => c.id === id ? { ...c, stage: Math.max(0, Math.min(3, c.stage + delta)) } : c)
+    });
+  }
+  renderVals() {
+    const stages = [
+      { name: 'Interesado', dot: '#6B7280' },
+      { name: 'Esperando pago', dot: '#D97706' },
+      { name: 'Pagó', dot: '#1D4ED8' },
+      { name: 'Entregado', dot: '#15803D' }
+    ];
+    const columns = stages.map((s, i) => {
+      const cards = this.state.cards.filter((c) => c.stage === i).map((c) => ({
+        ...c,
+        canLeft: i > 0,
+        noLeft: i === 0,
+        canRight: i < 3,
+        receipt: c.receipt && i === 1,
+        pdf: i === 3,
+        leftText: i > 0 ? stages[i - 1].name : '',
+        rightText: i < 3 ? stages[i + 1].name : '',
+        leftLabel: i > 0 ? 'Mover a ' + stages[i - 1].name + ': ' + c.name : '',
+        rightLabel: i < 3 ? 'Mover a ' + stages[i + 1].name + ': ' + c.name : '',
+        left: () => this.move(c.id, -1),
+        right: () => this.move(c.id, 1)
+      }));
+      return { name: s.name, dot: s.dot, count: cards.length, empty: cards.length === 0, cards };
+    });
+    return { columns };
+  }
+}
+</script>
+</body>
+</html>

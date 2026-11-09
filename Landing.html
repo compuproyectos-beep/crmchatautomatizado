@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Página principal</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#FFFFFF;color:#1A1D23}
+a{text-decoration:none}
+a:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; display: flex; flex-direction: column; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23; background: #FFFFFF">
+
+  <header style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 18px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <span style="font-size: 20px; font-weight: 800; letter-spacing: -0.02em">[Nombre del software]</span>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+      <a href="#funciones" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; color: #3A4150">Qué hace</a>
+      <a href="#planes" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; font-size: 14px; color: #3A4150">Planes</a>
+      <a href="Acceso.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; font-size: 14px; font-weight: 600; color: #1D4ED8; border: 1px solid #1D4ED8; border-radius: 8px">Entrar</a>
+    </nav>
+  </header>
+
+  <section style="box-sizing: border-box; width: 100%; background: #0F172A; color: #FFFFFF">
+    <div style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 64px 28px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start">
+      <h1 style="margin: 0; max-width: 760px; font-size: 44px; line-height: 1.1; font-weight: 800; letter-spacing: -0.03em">Atiende y cobra por WhatsApp, Instagram y Messenger desde un solo lugar</h1>
+      <p style="margin: 0; max-width: 640px; font-size: 18px; line-height: 1.5; color: #CBD5E1">Un asistente responde por ti, un tablero te muestra en qué etapa está cada cliente y, cuando paga, el sistema le entrega su producto.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 12px">
+        <a href="Acceso.html" style="min-height: 48px; display: flex; align-items: center; padding: 0 24px; border-radius: 8px; background: #3B82F6; color: #FFFFFF; font-size: 15px; font-weight: 600">Crear mi cuenta</a>
+        <a href="Acceso.html" style="min-height: 48px; display: flex; align-items: center; padding: 0 24px; border-radius: 8px; border: 1px solid #64748B; color: #FFFFFF; font-size: 15px; font-weight: 600">Ya tengo cuenta</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="funciones" style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 56px 28px; display: flex; flex-direction: column; gap: 24px">
+    <h2 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Qué puedes hacer</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <sc-for list="{{features}}" as="f" hint-placeholder-count="6">
+        <div style="flex: 1 1 320px; min-width: 0; background: #F4F5F7; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+          <h3 style="margin: 0; font-size: 17px; font-weight: 600">{{f.name}}</h3>
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3A4150">{{f.text}}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="box-sizing: border-box; width: 100%; background: #F4F5F7">
+    <div style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 56px 28px; display: flex; flex-direction: column; gap: 24px">
+      <h2 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Cómo empiezas</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px">
+        <sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+          <div style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 8px">
+            <span style="font-size: 13px; font-weight: 700; color: #1D4ED8">Paso {{s.n}}</span>
+            <h3 style="margin: 0; font-size: 17px; font-weight: 600">{{s.name}}</h3>
+            <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3A4150">{{s.text}}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section id="planes" style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 56px 28px; display: flex; flex-direction: column; gap: 12px">
+    <h2 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.02em">Planes</h2>
+    <p style="margin: 0; font-size: 15px; color: #3A4150; max-width: 640px">Los precios y lo que incluye cada plan los definimos más adelante. Aquí irían los planes mensuales, con un botón para crear la cuenta.</p>
+  </section>
+
+  <footer style="box-sizing: border-box; width: 100%; background: #0F172A; color: #94A3B8; padding: 24px 28px; font-size: 13px; text-align: center">
+    [Nombre del software] · Maqueta con datos de ejemplo
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const features = [
+      { name: 'Todos tus chats en un solo lugar', text: 'WhatsApp, Instagram y Messenger llegan a la misma bandeja. Tú y tu equipo responden desde ahí.' },
+      { name: 'Asistente que responde por ti', text: 'Contesta preguntas, da precios y guía al cliente hasta el pago. Si hace falta una persona, te pasa el chat.' },
+      { name: 'Tablero de ventas', text: 'Ves cada cliente en su etapa: interesado, esperando pago, pagó y entregado.' },
+      { name: 'Comprobantes de pago', text: 'El sistema lee la foto del comprobante y te avisa para que confirmes el pago en tu banco.' },
+      { name: 'Entrega automática', text: 'Al confirmar el pago, envía al cliente su producto: una clave, un archivo o un enlace.' },
+      { name: 'Resultados claros', text: 'Cuántos clientes entraron, cuántos compraron y por qué canal llegaron.' }
+    ];
+    const steps = [
+      { n: 1, name: 'Crea tu proyecto', text: 'Cuéntale al sistema qué vendes y cómo cobras. Te ayuda a dejarlo listo.' },
+      { n: 2, name: 'Conecta tu WhatsApp', text: 'Vinculas el número de tu negocio y tus redes.' },
+      { n: 3, name: 'Empieza a vender', text: 'Tu asistente atiende y tú sigues los resultados desde el panel.' }
+    ];
+    return { features, steps };
+  }
+}
+</script>
+</body>
+</html>
