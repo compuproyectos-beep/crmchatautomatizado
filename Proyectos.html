@@ -24,6 +24,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1D4ED8;outline-offset:2p
     <span style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em">Tu CRM</span>
     <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px">
       <span style="font-size: 13px; font-weight: 600; background: #1E293B; color: #E2E8F0; padding: 6px 12px; border-radius: 999px">Dueño del sistema</span>
+      <a href="Plan.html" style="font-size: 14px; color: #CBD5E1; min-height: 44px; display: flex; align-items: center">Mi plan</a>
       <a href="Acceso.html" style="font-size: 14px; color: #CBD5E1; min-height: 44px; display: flex; align-items: center">Salir</a>
     </div>
   </header>
@@ -34,7 +35,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #1D4ED8;outline-offset:2p
         <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Mis proyectos</h1>
         <p style="margin: 0; font-size: 14px; color: #5B6270">Cada proyecto tiene su propio WhatsApp, sus chats, sus productos y su equipo. <span style="font-weight: 600">Datos de ejemplo.</span></p>
       </div>
-      <button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Crear proyecto</button>
+      <a href="CrearProyecto.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; border-radius: 8px; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600">Crear proyecto</a>
     </div>
 
     <div style="display: flex; flex-wrap: wrap; gap: 16px">
@@ -60,10 +61,10 @@ a:focus-visible,button:focus-visible{outline:2px solid #1D4ED8;outline-offset:2p
       <p style="margin: 0; font-size: 13px; color: #5B6270">Estas secciones no las ven tus clientes.</p>
       <div style="display: flex; flex-wrap: wrap; gap: 12px">
         <sc-for list="{{owner}}" as="o" hint-placeholder-count="4">
-          <div style="flex: 1 1 220px; background: #F4F5F7; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px">
+          <a href="{{o.href}}" style="flex: 1 1 220px; background: #F4F5F7; border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 4px; color: #1A1D23">
             <span style="font-size: 14px; font-weight: 600">{{o.name}}</span>
             <span style="font-size: 13px; color: #5B6270">{{o.text}}</span>
-          </div>
+          </a>
         </sc-for>
       </div>
     </section>
@@ -81,10 +82,10 @@ class Component extends DCLogic {
       { name: 'Tienda técnica (ejemplo)', wa: 'Conectado', waFg: '#14532D', plan: 'De pago, vence en 12 días', team: '3', delivery: 'Según sus productos', ...client }
     ];
     const owner = [
-      { name: 'Clientes y cobros', text: 'Quién paga su plan, cuándo vence y a quién se le suspende.' },
-      { name: 'Planes', text: 'Qué incluye cada plan y cuánto cuesta.' },
-      { name: 'Conexiones de Meta', text: 'Estado de los números de WhatsApp de cada proyecto.' },
-      { name: 'Usuarios del sistema', text: 'Todas las personas con acceso y a qué proyecto.' }
+      { href: 'Admin.html', name: 'Clientes y cobros', text: 'Quién paga su plan, cuándo vence y a quién se le suspende.' },
+      { href: 'Plan.html', name: 'Planes', text: 'Qué incluye cada plan y cuánto cuesta.' },
+      { href: 'Conexiones.html', name: 'Conexiones de Meta', text: 'Estado de los números de WhatsApp de cada proyecto.' },
+      { href: 'Equipo.html', name: 'Usuarios del sistema', text: 'Todas las personas con acceso y a qué proyecto.' }
     ];
     return { projects, owner };
   }

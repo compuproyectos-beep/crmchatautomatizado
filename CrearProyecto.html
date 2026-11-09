@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Crear proyecto</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-direction: column; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <header style="background: #0F172A; color: #FFFFFF; padding: 6px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <a href="Proyectos.html" style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF; min-height: 44px; display: flex; align-items: center">Tu CRM</a>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+      <a href="Proyectos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #FFFFFF; font-weight: 600">Mis proyectos</a>
+      <a href="Plan.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Mi plan</a>
+      <a href="Admin.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Panel del dueño</a>
+      <a href="Acceso.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Salir</a>
+    </nav>
+  </header>
+  <main style="box-sizing: border-box; width: 100%; max-width: 820px; margin: 0 auto; padding: 32px 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Crear proyecto</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Paso {{num}} de 4: {{title}}</p>
+    </div>
+    <div style="display: flex; gap: 6px">
+      <sc-for list="{{bars}}" as="b" hint-placeholder-count="4"><div style="flex: 1 1 0; height: 8px; border-radius: 999px; background: {{b.bg}}"></div></sc-for>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 16px">
+      <sc-if value="{{s1}}" hint-placeholder-val="{{true}}">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">¿Qué vendes?</h2>
+        <p style="margin: 0; font-size: 14px; color: #5B6270">Según lo que elijas, el sistema deja listas las etapas del embudo y la forma de entregar.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
+            <button type="button" onClick="{{k.pick}}" aria-pressed="{{k.on}}" style="flex: 1 1 300px; min-width: 0; text-align: left; cursor: pointer; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 4px; border: {{k.border}}; background: {{k.bg}}; color: #1A1D23">
+              <span style="font-size: 15px; font-weight: 700">{{k.name}}</span>
+              <span style="font-size: 13px; color: #3A4150; line-height: 1.4">{{k.text}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{s2}}" hint-placeholder-val="{{false}}">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Cuéntanos de tu negocio</h2>
+        <div style="display: flex; flex-direction: column; gap: 6px"><label for="nn" style="font-size: 13px; font-weight: 600; color: #3A4150">Nombre de tu negocio o proyecto</label><input id="nn" type="text" placeholder="Ej.: Licencias de software" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="desc" style="font-size: 13px; font-weight: 600; color: #3A4150">¿Qué vendes y a quién? Escríbelo con tus palabras</label>
+          <textarea id="desc" rows="4" placeholder="Ej.: Vendo licencias originales de Windows y Office a personas y a técnicos. Entrego la clave por WhatsApp." style="box-sizing: border-box; width: 100%; border: 1px solid #C9CED8; border-radius: 8px; padding: 12px; font-size: 14px; font-family: inherit; line-height: 1.5"></textarea>
+        </div>
+        <p style="margin: 0; font-size: 13px; color: #5B6270">Con esto el sistema escribe las instrucciones de tu asistente. Después las puedes corregir.</p>
+      </sc-if>
+
+      <sc-if value="{{s3}}" hint-placeholder-val="{{false}}">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">¿Cómo te pagan?</h2>
+        <p style="margin: 0; font-size: 14px; color: #5B6270">Marca las formas de pago que aceptas. Los datos de tus cuentas los pones después, en Ajustes.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <sc-for list="{{pays}}" as="p" hint-placeholder-count="3">
+            <button type="button" onClick="{{p.toggle}}" aria-pressed="{{p.on}}" style="flex: 1 1 240px; min-width: 0; text-align: left; cursor: pointer; border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 4px; border: {{p.border}}; background: {{p.bg}}; color: #1A1D23">
+              <span style="font-size: 15px; font-weight: 700">{{p.name}}</span>
+              <span style="font-size: 13px; color: #3A4150">{{p.text}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{s4}}" hint-placeholder-val="{{false}}">
+        <h2 style="margin: 0; font-size: 18px; font-weight: 600">Todo listo</h2>
+        <p style="margin: 0; font-size: 14px; color: #3A4150">Esto es lo que vamos a dejar preparado. Lo podrás cambiar cuando quieras.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px">
+          <sc-for list="{{summary}}" as="r" hint-placeholder-count="4">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; background: #F4F5F7; border-radius: 10px; padding: 12px 14px; font-size: 14px"><span style="color: #5B6270">{{r.label}}</span><span style="font-weight: 600; text-align: right">{{r.value}}</span></div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px">
+      <sc-if value="{{canBack}}" hint-placeholder-val="{{false}}"><button type="button" onClick="{{back}}" style="min-height: 44px; padding: 0 18px; border: 1px solid #C9CED8; background: #FFFFFF; color: #1A1D23; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Atrás</button></sc-if>
+      <sc-if value="{{noBack}}" hint-placeholder-val="{{true}}"><a href="ProyectosVacio.html" style="min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600; color: #3A4150">Cancelar</a></sc-if>
+      <sc-if value="{{notLast}}" hint-placeholder-val="{{true}}"><button type="button" onClick="{{next}}" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Siguiente</button></sc-if>
+      <sc-if value="{{isLast}}" hint-placeholder-val="{{false}}"><a href="Conexiones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 18px; border-radius: 8px; background: #1D4ED8; color: #FFFFFF; font-size: 14px; font-weight: 600">Crear proyecto y conectar mis chats</a></sc-if>
+    </div>
+    <p style="margin: 0; font-size: 12px; color: #5B6270">Maqueta: no se guarda nada.</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { step: 0, kind: 0, pay: [true, true, false] };
+  }
+  renderVals() {
+    const titles = ['Qué vendes', 'Tu negocio', 'Cómo cobras', 'Revisión'];
+    const kindsData = [
+      { name: 'Claves de licencia', text: 'Entregas una clave de tu inventario y, si quieres, un PDF de instalación.', out: 'Clave + PDF de instalación' },
+      { name: 'Archivos digitales', text: 'Entregas un PDF, un curso o un archivo por enlace al confirmar el pago.', out: 'Archivo o enlace de descarga' },
+      { name: 'Productos físicos', text: 'Coordinas el envío o la entrega. El sistema te pide dirección y datos.', out: 'Envío o retiro' },
+      { name: 'Servicios', text: 'Agendas una cita o un trabajo después del pago.', out: 'Cita agendada' }
+    ];
+    const payData = [
+      { name: 'Transferencia bancaria', text: 'El cliente envía el comprobante y tú confirmas en tu banco.' },
+      { name: 'De Una o PayPhone', text: 'Pago desde el celular, con comprobante.' },
+      { name: 'Tarjeta en línea', text: 'Próximamente.' }
+    ];
+    const s = this.state;
+    const kinds = kindsData.map((k, i) => ({ ...k, on: s.kind === i, border: s.kind === i ? '2px solid #1D4ED8' : '2px solid #E3E6EC', bg: s.kind === i ? '#EFF4FF' : '#FFFFFF', pick: () => this.setState({ kind: i }) }));
+    const pays = payData.map((p, i) => ({ ...p, on: s.pay[i], border: s.pay[i] ? '2px solid #1D4ED8' : '2px solid #E3E6EC', bg: s.pay[i] ? '#EFF4FF' : '#FFFFFF', toggle: () => this.setState({ pay: s.pay.map((v, j) => j === i ? !v : v) }) }));
+    const chosen = payData.filter((p, i) => s.pay[i]).map((p) => p.name).join(', ') || 'Ninguna todavía';
+    const summary = [
+      { label: 'Qué vendes', value: kindsData[s.kind].name },
+      { label: 'Cómo entregas', value: kindsData[s.kind].out },
+      { label: 'Formas de pago', value: chosen },
+      { label: 'Prueba gratis', value: '5 días, sin tarjeta' }
+    ];
+    return {
+      num: s.step + 1, title: titles[s.step],
+      bars: titles.map((t, i) => ({ bg: i <= s.step ? '#1D4ED8' : '#D5D9E2' })),
+      s1: s.step === 0, s2: s.step === 1, s3: s.step === 2, s4: s.step === 3,
+      kinds, pays, summary,
+      canBack: s.step > 0, noBack: s.step === 0,
+      notLast: s.step < 3, isLast: s.step === 3,
+      back: () => this.setState({ step: s.step - 1 }),
+      next: () => this.setState({ step: s.step + 1 })
+    };
+  }
+}
+</script>
+</body>
+</html>

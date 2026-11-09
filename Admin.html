@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Panel del dueño</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-direction: column; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <header style="background: #0F172A; color: #FFFFFF; padding: 6px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <a href="Proyectos.html" style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF; min-height: 44px; display: flex; align-items: center">Tu CRM</a>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+      <a href="Proyectos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Mis proyectos</a>
+      <a href="Plan.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Mi plan</a>
+      <a href="Admin.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #FFFFFF; font-weight: 600">Panel del dueño</a>
+      <a href="Acceso.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Salir</a>
+    </nav>
+  </header>
+  <main style="box-sizing: border-box; width: 100%; max-width: 1200px; margin: 0 auto; padding: 32px 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Panel del dueño</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Todas las cuentas del sistema y quién paga. Solo lo ves tú. <span style="font-weight: 600">Datos de ejemplo.</span></p>
+    </div>
+    <div style="display: flex; flex-wrap: wrap; gap: 12px">
+      <sc-for list="{{tiles}}" as="t" hint-placeholder-count="4">
+        <div style="flex: 1 1 200px; min-width: 0; background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #5B6270">{{t.label}}</span><span style="font-size: 28px; font-weight: 700">{{t.value}}</span></div>
+      </sc-for>
+    </div>
+    <section style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 4px">
+      <h2 style="margin: 0 0 8px 0; font-size: 16px; font-weight: 600">Cuentas</h2>
+      <sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 0; border-top: 1px solid #EEF0F4; font-size: 14px">
+          <span style="flex: 2 1 160px; min-width: 0; font-weight: 600">{{r.name}}</span>
+          <span style="flex: 2 1 160px; min-width: 0; color: #3A4150">{{r.project}}</span>
+          <span style="flex: 1 1 140px; min-width: 0"><span style="display: inline-block; font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; color: {{r.fg}}; background: {{r.bg}}">{{r.state}}</span></span>
+          <span style="flex: 1 1 120px; min-width: 0; color: #5B6270">{{r.note}}</span>
+        </div>
+      </sc-for>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tiles = [
+      { label: 'Cuentas', value: '5' },
+      { label: 'En prueba gratis', value: '2' },
+      { label: 'Pagando', value: '2' },
+      { label: 'Vencidas', value: '1' }
+    ];
+    const trial = { state: 'En prueba', fg: '#1E3A8A', bg: '#DBE7FF' };
+    const paid = { state: 'Pagando', fg: '#14532D', bg: '#DDF3E4' };
+    const late = { state: 'Vencida', fg: '#7A1D1D', bg: '#FDE3E3' };
+    const rows = [
+      { name: 'Roberto (dueño)', project: 'Licencias de software', state: 'Gratis (dueño)', fg: '#1E3A8A', bg: '#DBE7FF', note: 'Sin vencimiento' },
+      { name: 'Tienda técnica', project: 'Tienda técnica (ejemplo)', ...paid, note: 'Vence en 12 días' },
+      { name: 'María P.', project: 'Ropa deportiva', ...paid, note: 'Vence en 25 días' },
+      { name: 'Luis G.', project: 'Cursos en línea', ...trial, note: 'Quedan 3 días' },
+      { name: 'Nuevo usuario', project: 'Sin proyecto', ...trial, note: 'Quedan 5 días' },
+      { name: 'Pedro A.', project: 'Accesorios', ...late, note: 'Venció hace 4 días' }
+    ];
+    return { tiles, rows };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Conexiones</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-wrap: wrap; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <nav aria-label="Menú principal" style="box-sizing: border-box; flex: 0 0 232px; background: #0F172A; color: #E2E8F0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; min-height: 820px">
+    <a href="Proyectos.html" style="min-height: 44px; display: flex; flex-direction: column; gap: 2px; padding: 4px 10px 16px 10px; color: #FFFFFF"><span style="font-size: 12px; color: #94A3B8">Proyecto</span><span style="font-size: 15px; font-weight: 700">Licencias de software ▾</span><span style="font-size: 12px; color: #93C5FD">Cambiar de proyecto</span></a>
+    <a href="Inicio.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inicio</a>
+    <a href="Panel.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Chats</a>
+    <a href="Main.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Embudo de ventas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Etiquetas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Difusiones</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Respuestas rápidas</a>
+    <a href="Automatizaciones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Automatizaciones</a>
+    <a href="Inventario.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inventario de licencias</a>
+    <a href="Productos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Productos y precios</a>
+    <a href="Equipo.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Equipo</a>
+    <a href="Conexiones.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1D4ED8">Conexiones</a>
+  </nav>
+  <main style="box-sizing: border-box; flex: 1 1 760px; min-width: 0; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Conexiones</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Aquí vinculas los canales por donde te escriben tus clientes. <span style="font-weight: 600">Datos de ejemplo.</span></p>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 600">Lo que necesitas antes de conectar</h2>
+      <ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; line-height: 1.5; color: #3A4150">
+        <li>Un número de teléfono para tu negocio que no esté usando WhatsApp en el celular. Lo mejor es un chip nuevo.</li>
+        <li>Una cuenta de Meta para empresas, que es gratis y se crea con tu Facebook.</li>
+        <li>Para Instagram y Messenger, la página de Facebook y la cuenta de Instagram de tu negocio.</li>
+      </ul>
+    </section>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 16px">
+      <sc-for list="{{channels}}" as="c" hint-placeholder-count="3">
+        <article style="flex: 1 1 300px; min-width: 0; background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 12px">
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px">
+            <h3 style="margin: 0; font-size: 17px; font-weight: 700">{{c.name}}</h3>
+            <span style="font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; white-space: nowrap; color: {{c.fg}}; background: {{c.bg}}">{{c.state}}</span>
+          </div>
+          <p style="margin: 0; font-size: 14px; line-height: 1.5; color: #3A4150">{{c.text}}</p>
+          <button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">{{c.action}}</button>
+        </article>
+      </sc-for>
+    </div>
+    <p style="margin: 0; font-size: 13px; color: #5B6270">Cuando conectes WhatsApp, el sistema te muestra paso a paso lo que debes hacer en la página de Meta.</p>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const off = { state: 'Sin conectar', fg: '#7A4A00', bg: '#FFF1D6' };
+    const channels = [
+      { name: 'WhatsApp', text: 'Recibe y responde chats de WhatsApp con el número de tu negocio. Es el canal principal para vender.', action: 'Conectar WhatsApp', ...off },
+      { name: 'Instagram', text: 'Atiende los mensajes directos de tu cuenta de Instagram desde la misma bandeja.', action: 'Conectar Instagram', ...off },
+      { name: 'Messenger', text: 'Atiende los mensajes de tu página de Facebook desde la misma bandeja.', action: 'Conectar Messenger', ...off }
+    ];
+    return { channels };
+  }
+}
+</script>
+</body>
+</html>

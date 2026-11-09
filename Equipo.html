@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Equipo</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-wrap: wrap; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <nav aria-label="Menú principal" style="box-sizing: border-box; flex: 0 0 232px; background: #0F172A; color: #E2E8F0; padding: 20px 14px; display: flex; flex-direction: column; gap: 4px; min-height: 820px">
+    <a href="Proyectos.html" style="min-height: 44px; display: flex; flex-direction: column; gap: 2px; padding: 4px 10px 16px 10px; color: #FFFFFF"><span style="font-size: 12px; color: #94A3B8">Proyecto</span><span style="font-size: 15px; font-weight: 700">Licencias de software ▾</span><span style="font-size: 12px; color: #93C5FD">Cambiar de proyecto</span></a>
+    <a href="Inicio.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inicio</a>
+    <a href="Panel.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Chats</a>
+    <a href="Main.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Embudo de ventas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Etiquetas</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Difusiones</a>
+    <a href="#" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Respuestas rápidas</a>
+    <a href="Automatizaciones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Automatizaciones</a>
+    <a href="Inventario.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Inventario de licencias</a>
+    <a href="Productos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Productos y precios</a>
+    <a href="Equipo.html" aria-current="page" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: #FFFFFF; background: #1D4ED8">Equipo</a>
+    <a href="Conexiones.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 500; color: #CBD5E1">Conexiones</a>
+  </nav>
+  <main style="box-sizing: border-box; flex: 1 1 760px; min-width: 0; padding: 32px; display: flex; flex-direction: column; gap: 20px">
+    <div style="display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0; font-size: 28px; font-weight: 700; letter-spacing: -0.01em">Equipo</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Las personas que atienden este proyecto y lo que puede hacer cada una. <span style="font-weight: 600">Datos de ejemplo.</span></p>
+    </div>
+
+    <section style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 6px">
+      <sc-for list="{{members}}" as="m" hint-placeholder-count="3">
+        <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 0; border-top: 1px solid #EEF0F4">
+          <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px; font-weight: 600">{{m.name}}</span><span style="font-size: 13px; color: #5B6270">{{m.email}}</span></div>
+          <span style="font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 6px; color: {{m.fg}}; background: {{m.bg}}">{{m.role}}</span>
+        </div>
+      </sc-for>
+    </section>
+
+    <section style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); display: flex; flex-direction: column; gap: 12px">
+      <h2 style="margin: 0; font-size: 16px; font-weight: 600">Invitar a alguien</h2>
+      <div style="display: flex; flex-direction: column; gap: 6px"><label for="inv" style="font-size: 13px; font-weight: 600; color: #3A4150">Correo de la persona</label><input id="inv" type="email" placeholder="persona@ejemplo.com" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+      <div style="display: flex; flex-direction: column; gap: 6px"><label for="rol" style="font-size: 13px; font-weight: 600; color: #3A4150">Qué puede hacer</label>
+        <select id="rol" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%; background: #FFFFFF"><option>Vendedor: atiende chats y mueve clientes</option><option>Administrador: además cambia productos y ajustes</option></select></div>
+      <div><button type="button" style="min-height: 44px; padding: 0 18px; border: 1px solid #1D4ED8; background: #1D4ED8; color: #FFFFFF; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer">Enviar invitación</button></div>
+      <p style="margin: 0; font-size: 13px; color: #5B6270">La persona recibe un correo con un enlace para crear su contraseña.</p>
+    </section>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const members = [
+      { name: 'Roberto (tú)', email: 'tucorreo@ejemplo.com', role: 'Dueño', fg: '#1E3A8A', bg: '#DBE7FF' },
+      { name: 'Ana López', email: 'ana@ejemplo.com', role: 'Vendedor', fg: '#14532D', bg: '#DDF3E4' },
+      { name: 'Carlos Ruiz', email: 'carlos@ejemplo.com', role: 'Administrador', fg: '#7A4A00', bg: '#FFF1D6' }
+    ];
+    return { members };
+  }
+}
+</script>
+</body>
+</html>

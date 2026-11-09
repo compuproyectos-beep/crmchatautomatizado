@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Bienvenida</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; flex-direction: column; background: #F4F5F7; font-family: 'Inter', system-ui, sans-serif; color: #1A1D23">
+  <header style="background: #0F172A; color: #FFFFFF; padding: 6px 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+    <a href="Proyectos.html" style="font-size: 18px; font-weight: 700; letter-spacing: -0.01em; color: #FFFFFF; min-height: 44px; display: flex; align-items: center">Tu CRM</a>
+    <nav style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+      <a href="Proyectos.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #FFFFFF; font-weight: 600">Mis proyectos</a>
+      <a href="Plan.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Mi plan</a>
+      <a href="Admin.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Panel del dueño</a>
+      <a href="Acceso.html" style="min-height: 44px; display: flex; align-items: center; padding: 0 10px; font-size: 14px; color: #CBD5E1">Salir</a>
+    </nav>
+  </header>
+  <main style="box-sizing: border-box; width: 100%; max-width: 1000px; margin: 0 auto; padding: 32px 28px; display: flex; flex-direction: column; gap: 20px">
+    <div style="background: #DBE7FF; border-radius: 12px; padding: 14px 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px">
+      <span style="font-size: 14px; font-weight: 600; color: #1E3A8A">Te quedan 5 días de prueba gratis</span>
+      <a href="Plan.html" style="min-height: 44px; display: flex; align-items: center; font-size: 14px; font-weight: 600; color: #1D4ED8">Ver planes</a>
+    </div>
+    <div style="background: #FFFFFF; border-radius: 14px; padding: 20px; box-shadow: 0 1px 2px rgba(26,29,35,0.08); padding: 40px 28px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Bienvenido. Creemos tu primer proyecto</h1>
+      <p style="margin: 0; max-width: 520px; font-size: 15px; line-height: 1.5; color: #3A4150">Un proyecto es tu negocio dentro del sistema: tiene su WhatsApp, sus chats, sus productos y su equipo. Te hacemos unas preguntas y lo dejamos listo.</p>
+      <a href="CrearProyecto.html" style="min-height: 48px; display: flex; align-items: center; padding: 0 24px; border-radius: 8px; background: #1D4ED8; color: #FFFFFF; font-size: 15px; font-weight: 600">Crear mi primer proyecto</a>
+    </div>
+  </main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

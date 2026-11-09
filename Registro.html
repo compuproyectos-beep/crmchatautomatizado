@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Crear cuenta</title>
+<script src="runtime.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Inter',system-ui,sans-serif;background:#F4F5F7;color:#1A1D23}
+a{text-decoration:none}
+button{font-family:inherit}
+button:hover{opacity:0.92}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #1D4ED8;outline-offset:2px}
+</style>
+</helmet>
+<div style="box-sizing: border-box; width: 100%; min-height: 820px; display: flex; align-items: center; justify-content: center; padding: 32px; background: #0F172A; font-family: 'Inter', system-ui, sans-serif">
+  <div style="box-sizing: border-box; width: 100%; max-width: 440px; background: #FFFFFF; border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 16px">
+    <div style="display: flex; flex-direction: column; gap: 6px">
+      <h1 style="margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.01em">Crea tu cuenta</h1>
+      <p style="margin: 0; font-size: 14px; color: #5B6270">Prueba gratis durante 5 días. No pedimos tarjeta.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><label for="r1" style="font-size: 13px; font-weight: 600; color: #3A4150">Tu nombre</label><input id="r1" type="text" placeholder="Ej.: María Pérez" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><label for="r2" style="font-size: 13px; font-weight: 600; color: #3A4150">Correo</label><input id="r2" type="email" placeholder="tucorreo@ejemplo.com" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><label for="r3" style="font-size: 13px; font-weight: 600; color: #3A4150">Contraseña</label><input id="r3" type="password" placeholder="Mínimo 8 caracteres" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+    <div style="display: flex; flex-direction: column; gap: 6px"><label for="r4" style="font-size: 13px; font-weight: 600; color: #3A4150">Nombre de tu negocio</label><input id="r4" type="text" placeholder="Ej.: Mi tienda" style="box-sizing: border-box; min-height: 44px; border: 1px solid #C9CED8; border-radius: 8px; padding: 0 12px; font-size: 14px; font-family: inherit; width: 100%"></div>
+    <a href="ProyectosVacio.html" style="min-height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: #1D4ED8; color: #FFFFFF; font-size: 15px; font-weight: 600">Crear mi cuenta</a>
+    <p style="margin: 0; font-size: 13px; color: #5B6270; text-align: center">¿Ya tienes cuenta? <a href="Acceso.html" style="color: #1D4ED8; font-weight: 600">Entrar</a></p>
+    <p style="margin: 0; font-size: 12px; color: #5B6270; text-align: center">Maqueta: este botón solo te lleva a la siguiente pantalla.</p>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>
